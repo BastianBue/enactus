@@ -56,12 +56,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   });
 };
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  console.log("hello its me the on create webpack config");
   if (stage === "build-html") {
     actions.setWebpackConfig({
       module: {
         rules: [
           {
-            test: bootstrap,
+            test: "bootstrap",
             use: loaders.null(),
           },
         ],

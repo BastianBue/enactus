@@ -3,7 +3,9 @@ import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 
 import logo from "../../images/enactus-n-brand.svg";
-import "bootstrap";
+if (typeof window !== `undefined`) {
+  require("bootstrap");
+}
 
 function Header() {
   return (
