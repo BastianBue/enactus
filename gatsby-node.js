@@ -1,9 +1,5 @@
 const path = require("path");
 
-if (typeof window !== `undefined`) {
-  const bootstrap = require("bootstrap");
-}
-
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
   return new Promise((resolve, reject) => {
@@ -54,19 +50,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
     );
   });
-};
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  console.log("hello its me the on create webpack config");
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: "bootstrap",
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
 };
